@@ -1,5 +1,4 @@
 import { useInventoryContext } from "../context/InventoryContext";
-import { Product } from "../types";
 
 export default function Dashboard() {
   const { products } = useInventoryContext();
@@ -7,12 +6,12 @@ export default function Dashboard() {
   const totalItems = products.length;
 
   const totalValue = products.reduce(
-    (sum: number, p: Product) => sum + p.price * p.quantity,
+    (sum: number, p: any) => sum + p.price * p.quantity,
     0
   );
 
   const outOfStock = products.filter(
-    (p: Product) => p.quantity === 0
+    (p: any) => p.quantity === 0
   ).length;
 
   return (
